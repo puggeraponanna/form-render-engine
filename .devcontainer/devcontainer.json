@@ -1,12 +1,21 @@
 {
 	"name": "Python 3",
-	"build": {
-		"dockerfile": "Dockerfile",
-		"context": ".."
-	},
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "app",
+	"workspaceFolder": "/workspace",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": { 
+		"sqltools.connections": [{
+			"name": "Container database",
+			"driver": "PostgreSQL",
+			"previewLimit": 50,
+			"server": "localhost",
+			"port": 5432,
+			"database": "localDB",
+			"username": "postgres",
+			"password": "postgres"
+		}],
 		"python.pythonPath": "/usr/local/bin/python",
 		"python.languageServer": "Pylance",
 		"python.linting.enabled": true,
@@ -16,7 +25,9 @@
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
 		"ms-python.python",
-		"ms-python.vscode-pylance"
+		"ms-python.vscode-pylance",
+		"mtxr.sqltools",
+		"mtxr.sqltools-driver-pg"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

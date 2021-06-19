@@ -12,14 +12,19 @@
 			"previewLimit": 50,
 			"server": "localhost",
 			"port": 5432,
-			"database": "localDB",
+			"database": "postgres",
 			"username": "postgres",
 			"password": "postgres"
 		}],
 		"python.pythonPath": "/usr/local/bin/python",
 		"python.languageServer": "Pylance",
 		"python.linting.enabled": true,
-		"python.linting.pylintEnabled": true
+		"python.linting.pylintEnabled": true,
+		"python.linting.pylintArgs": [
+			"--load-plugins",
+			"pylint_flask_sqlalchemy",
+			"pylint_flask",
+		]
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
@@ -31,7 +36,7 @@
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.
-	"forwardPorts": [5000],
+	"forwardPorts": [5000, 5432],
 
 	// Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
 	"remoteUser": "vscode"

@@ -1,2 +1,4 @@
 Flask==2.0.1
 pylint
+autopep8
+python-dotenv

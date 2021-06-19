@@ -1,6 +1,9 @@
 from flask import Flask
+from dotenv import dotenv_values
 
 server = Flask(__name__)
+server.config.from_mapping(dotenv_values(".env"))
+
 
 @server.route('/')
 def hello():
